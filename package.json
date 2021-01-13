@@ -4,9 +4,17 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "@apollo/react-hooks": "^3.1.5",
+    "apollo-boost": "^0.4.7",
+    "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "graphql": "^15.0.0",
+    "html-webpack-plugin": "^4.2.0",
+    "mongoose": "^5.9.11",
+    "nodemon": "^2.0.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "webpack": "^4.38.0"
+    "styled-components": "^5.2.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
@@ -14,11 +22,17 @@
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.6",
+    "css-loader": "^5.0.1",
+    "sass": "^1.32.2",
+    "sass-loader": "^10.1.0",
+    "style-loader": "^2.0.0",
+    "webpack": "^4.45.0",
     "webpack-cli": "^3.3.6",
     "webpack-dev-server": "^3.7.2"
   },
   "scripts": {
-    "start": "webpack-dev-server --open --config webpack.config.js "
+    "start": "webpack-dev-server --open --config webpack.config.js ",
+    "server": "nodemon server/index.js"
   },
   "author": "",
   "license": "ISC"

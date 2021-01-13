@@ -1,27 +1,48 @@
 
 const path = require('path');
-module.exports =  {
-    mode:'development',
-    entry:{
-        main:'./app.js',
+const HtmlPlugin = require('html-webpack-plugin');
+module.exports = {
+    mode: 'development',
+    entry: {
+        main: './app.js',
     },
-    output:{
+    output: {
         path: path.resolve(__dirname, 'public'),
         filename: '[name].js',
-        publicPath:'/'
+        publicPath: '/'
     },
-    module:{
+    module: {
         rules: [{
             test: /\.js$/,
             exclude: /node_modules/,
-            use: [{ loader: 'babel-loader'}],
-        }],
+            use: [{ loader: 'babel-loader' }],
+        },
+        {
+            test: /\.css$/i,
+            use: ['style-loader', 'css-loader'],
+          },
+            {
+              test: /\.s[ac]ss$/i,
+              use: [
+                "style-loader",
+                "css-loader",
+                // Compiles Sass to CSS
+                "sass-loader",
+              ],
+            },]
     },
-    devServer:{
-        port:9090,
+    plugins: [
+        new HtmlPlugin({
+            title: 'Test',
+            filename: 'index.html',
+            template: 'index.html',
+        })
+    ],
+    devServer: {
+        port: 9090,
         hot: true,
-        inline:true,
+        inline: true,
         historyApiFallback: true,
-        contentBase:path.resolve(__dirname , 'public'),
+        contentBase: path.resolve(__dirname, 'public'),
     }
 }
