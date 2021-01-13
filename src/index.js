@@ -2,7 +2,6 @@
 
 
 import React, { useState, useLayoutEffect, useEffect } from 'react';
-import './index.css';
 import styled from 'styled-components';
 import productData from './data.json';
 
